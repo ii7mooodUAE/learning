@@ -1,11 +1,10 @@
 from pytube import YouTube
 from pytube.cli import on_progress #Progress bar
-import subprocess, os, requests, eyed3
+import subprocess, os, requests
 
 #sp for running commands
 #os to move files
 #requests to get video thumbnail image
-#eyed3 to edit mp3 metadata
 
 
 videoUrl = str(input("Enter URL \n"))
