@@ -21,20 +21,17 @@ def ValidateName(fileName):
 if int(response) == 1:
     video = yt.streams.get_highest_resolution().download(filename=f'{ValidateName(yt.title)}.mp4', #gets the highest reso video, calls function to remove invalidchars from yt.title
                                                         output_path=os.path.expanduser('~')+'\\Desktop') #downloads it at Desktop
-    print("done")
     
 elif int(response) == 2:
     audio = yt.streams.filter(only_audio=True).first().download(filename=f'{ValidateName(yt.title)}.mp3', #gets audio-only file, calls function to remove invalidchars from yt.title
                                                         output_path=os.path.expanduser('~')+'\\Desktop') #downloads it at desktop as .mp3
-    print("done")
     
 elif int(response) == 3:
     with open(os.path.expanduser('~')+f'\\Desktop\\{ValidateName(yt.title)+".jpg"}', "wb+") as fp: #calls ValidateName function to validate yt.title before creating it at Desktop
         fp.write(requests.get(yt.thumbnail_url, stream=True).raw.read()) #uses requests to get yt.thumbnail_urls 's raw data and writes it to the file created ^ (fp)
-    print("done")
     
 else:
     print("invalid option")
 
 
-input("Press any button to end....")
+input("Download completed, press any button to quit....")
